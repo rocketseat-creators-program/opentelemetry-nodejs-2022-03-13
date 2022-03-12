@@ -9,9 +9,10 @@ exporters:
     logLevel: info
   newrelic:
     apikey: <API KEY>
-  datadog:
-    api:
-      key: <API KEY>
+  otlphttp:
+    traces_endpoint: https://ingest.lightstep.com:443/traces/otlp/v0.6
+    headers: "lightstep-access-token": "<LS_ACCESS_TOKEN>"
+    compression: gzip
 service:
   extensions: [health_check]
   pipelines:
